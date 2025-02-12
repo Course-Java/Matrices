@@ -1,17 +1,33 @@
+import java.util.Scanner;
+
 public class Matrices {
     public static void main(String[] args) {
-        // Definimos un matriz
-        var matriz = new int[][]{
-                {100, 200, 300},
-                {400, 500, 600}
-        };
+        // Introducir valores a una matriz
+        int filas, columnas;
 
-        // Recorrer una matriz
-        // 1. Ciclo más externo. Recorrer las filas
-        for (var filas = 0; filas < matriz.length; filas++) {
-            // 2. Ciclo más interno. Recorrer las columnas
-            for (var columnas = 0; columnas < matriz[filas].length; columnas++){
-                System.out.println("Valor[" + filas + "][" + columnas + "] = " + matriz[filas][columnas]);
+        var consola = new Scanner(System.in);
+
+        System.out.print("Proporciona la cantidad de filas de la matriz: ");
+        filas = Integer.parseInt(consola.nextLine());
+
+        System.out.print("Proporciona la cantidad de columnas de la matriz: ");
+        columnas = Integer.parseInt(consola.nextLine());
+
+        var matriz = new int[filas][columnas];
+
+        // Solicitar los valores
+        for (var i = 0; i < filas; i++) {
+            for (var j = 0; j < columnas; j++) {
+                System.out.print("Valor[" + i + "][" + j + "] = ");
+                matriz[i][j] = Integer.parseInt(consola.nextLine());
+            }
+        }
+
+        // Iterar los valores de la matriz
+        System.out.println();
+        for (var i = 0; i < filas; i++) {
+            for (var j = 0; j < columnas; j++){
+                System.out.println("Valor[" + i + "][" + j + "] = " + matriz[i][j]);
             }
         }
     }
