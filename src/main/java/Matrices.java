@@ -1,26 +1,26 @@
 public class Matrices {
     public static void main(String[] args) {
         // Definimos un matriz
-        final var FILAS = 2;
-        final var COLUMNAS = 3;
-
-        var matriz = new int[FILAS][COLUMNAS];
-
-        // Modificar los valores de la matriz
-        matriz[0][0] = 100;
-        matriz[0][1] = 200;
-        matriz[0][2] = 300;
-        matriz[1][0] = 400;
-        matriz[1][1] = 500;
-        matriz[1][2] = 600;
+        var matriz = new int[][]{
+                {100, 200, 300},
+                {400, 500, 600}
+        };
 
         // Recorrer una matriz
         // 1. Ciclo más externo. Recorrer las filas
-        for (var filas = 0; filas < FILAS; filas++) {
+        for (var filas = 0; filas < matriz.length; filas++) {
             // 2. Ciclo más interno. Recorrer las columnas
-            for (var columnas = 0; columnas < COLUMNAS; columnas++){
+            for (var columnas = 0; columnas < matriz[filas].length; columnas++){
                 System.out.println("Valor[" + filas + "][" + columnas + "] = " + matriz[filas][columnas]);
             }
         }
     }
 }
+
+/*
+ * NOTAS:
+ * Al usar una sintaxis simplificada para crear la matriz no tenemos una forma fácil de determinar las dimensiones de esta para poder recorrerla, tenemos que hacer estos pasos:
+ * Para recorrer las filas de una matriz, cómo sabemos que una matriz es una arreglo de arreglos, con solo saber la cantidad de arreglos que se pueden almacenar, podemos determinar la cantidad de filas que tiene. Por eso consultamos matriz.length (la cantidad de espacios que tiene este arreglo de arreglos)
+ * Para recorrer las columnas de una matriz, debemos de saber la cantidad de espacio que tiene el arreglo en el que estamos actualmente. Por eso consultamos matriz[fila].length
+ * ¿Es confuso, verdad? ...
+ */
