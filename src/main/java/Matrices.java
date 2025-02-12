@@ -1,8 +1,10 @@
 public class Matrices {
     public static void main(String[] args) {
         // Definimos un matriz
-        // int[][] matriz = new int[2][3];
-        var matriz = new int[2][3];
+        final var FILAS = 2;
+        final var COLUMNAS = 3;
+
+        var matriz = new int[FILAS][COLUMNAS];
 
         // Modificar los valores de la matriz
         matriz[0][0] = 100;
@@ -12,9 +14,13 @@ public class Matrices {
         matriz[1][1] = 500;
         matriz[1][2] = 600;
 
-        // Accedemos a los valores
-        System.out.println("Valor 1 [0][0] = " + matriz[0][0]);
-        System.out.println("Valor 5 [1][1] = " + matriz[1][1]);
-        System.out.println("Valor 6 [1][2] = " + matriz[1][2]);
+        // Recorrer una matriz
+        // 1. Ciclo más externo. Recorrer las filas
+        for (var filas = 0; filas < FILAS; filas++) {
+            // 2. Ciclo más interno. Recorrer las columnas
+            for (var columnas = 0; columnas < COLUMNAS; columnas++){
+                System.out.println("Valor[" + filas + "][" + columnas + "] = " + matriz[filas][columnas]);
+            }
+        }
     }
 }
